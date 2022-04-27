@@ -17,7 +17,7 @@ interface Props {
 const difficultyOptions = ["Any difficulty", "Easy", "Medium", "Hard"];
 
 export const QuizForm = ({ categories, submit }: Props) => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(7);
   const [difficultyLevel, setDifficultyLevel] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<Category>();
 
@@ -44,7 +44,11 @@ export const QuizForm = ({ categories, submit }: Props) => {
 
   return (
     <form onSubmit={onSubmit} className={styles.form}>
-      <Input label="Amount" onInputChange={onInputChange} />
+      <Input
+        label="Amount"
+        initialValue={amount}
+        onInputChange={onInputChange}
+      />
       <Dropdown
         options={difficultyOptions}
         label="Difficulty level"
